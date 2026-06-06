@@ -1,0 +1,304 @@
+/* ── Variáveis ──────────────────────────────────────────── */
+:root {
+  --bg:         #07090f;
+  --bg-card:    #0c111e;
+  --bg-hover:   #111828;
+  --border:     #1a2436;
+  --primary:    #4d9de0;
+  --danger:     #e05252;
+  --warning:    #e0a94d;
+  --success:    #4dbd72;
+  --text:       #b8cce0;
+  --muted:      #4a6070;
+  --bright:     #ddeeff;
+  --font:       'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono:       'Courier New', 'Consolas', monospace;
+  --radius:     8px;
+}
+
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px 32px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+
+h1 {
+  font-size: 1.2em;
+  color: var(--bright);
+  letter-spacing: 0.3px;
+}
+
+.subtitulo {
+  display: block;
+  font-size: 0.7em;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+.header-direita {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── Botão ───────────────────────────────────────────────── */
+button {
+  background: var(--primary);
+  color: #07090f;
+  border: none;
+  padding: 8px 22px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.88em;
+  font-weight: 600;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+button:hover:not(:disabled) { background: #3a8ecf; }
+button:disabled { opacity: 0.4; cursor: default; }
+
+.btn-download {
+  background: var(--success);
+  color: #07090f;
+  border: none;
+  padding: 8px 22px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.88em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.btn-download:hover { background: #3aab60; }
+
+/* ── Main ────────────────────────────────────────────────── */
+main {
+  padding: 28px 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.secao { margin-bottom: 36px; }
+
+.secao-titulo {
+  font-size: 0.68em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ── Saúde ───────────────────────────────────────────────── */
+.saude-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.saude-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.saude-label {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.saude-valor {
+  font-size: 2em;
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--bright);
+}
+
+.saude-valor.baixo { color: var(--success); }
+.saude-valor.medio { color: var(--warning); }
+.saude-valor.alto  { color: var(--danger); }
+
+.barra-bg {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.7s ease;
+}
+
+.barra-fill.baixo { background: var(--success); }
+.barra-fill.medio { background: var(--warning); }
+.barra-fill.alto  { background: var(--danger); }
+
+/* ── Cards de Métricas ───────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.metrica-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.metrica-card.danger  { border-color: #3a1212; }
+.metrica-card.warning { border-color: #3a2810; }
+
+.metrica-valor {
+  font-size: 2.2em;
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.metrica-card.danger  .metrica-valor { color: var(--danger); }
+.metrica-card.warning .metrica-valor { color: var(--warning); }
+.metrica-valor.pequeno { font-size: 1em; padding-top: 6px; }
+
+.metrica-label {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ── Tabela ──────────────────────────────────────────────── */
+.tabela-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.badge-contagem {
+  font-size: 0.78em;
+  color: var(--muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2px 12px;
+  border-radius: 20px;
+}
+
+.tabela-wrapper {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+table { width: 100%; border-collapse: collapse; min-width: 680px; }
+
+thead { background: #090d18; }
+
+th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.68em;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+td {
+  padding: 11px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+
+tr:hover td { background: var(--bg-hover); }
+
+/* ── Badges e Scores ─────────────────────────────────────── */
+.score-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-family: var(--mono);
+  font-size: 0.85em;
+  font-weight: 700;
+}
+
+.score-alto  { background: #2c0a0a; color: #ff7070; border: 1px solid #5a1212; }
+.score-medio { background: #2c1f0a; color: #ffd460; border: 1px solid #5a3810; }
+.score-baixo { background: #0a2c14; color: #5dd480; border: 1px solid #125a24; }
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.status-perigo { background: #2c0a0a; color: #e05252; border: 1px solid #5a1212; }
+.status-seguro { background: #0a2c14; color: #4dbd72; border: 1px solid #125a24; }
+
+/* ── Utilitários ─────────────────────────────────────────── */
+.mono  { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.erro  { color: var(--danger); }
+.msg   { padding: 12px 0; font-size: 0.9em; }
+
+/* ── Skeleton ────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card)  25%,
+    var(--border)   50%,
+    var(--bg-card)  75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius);
+  height: 90px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Responsivo ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  header, main { padding: 16px; }
+  .saude-grid, .cards-grid { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 1em; }
+}

@@ -1,0 +1,51 @@
+# Credenciais — nunca versionar
+.env
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Banco de dados e dados gerados (artefatos locais)
+data/*.db
+data/raw/
+data/reports/
+data/neo_*.json
+data/images/
+
+# Logs
+logs/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Build e distribuição
+*.egg-info/
+dist/
+build/
+
+# Pytest e ferramentas de análise estática
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Claude Code (configuração local de IDE)
+.claude/
+
+# Zips de entrega (artefatos gerados por scripts/build_entrega.py)
+gs_entrega_*.zip
+
+# Relatório de análise técnica (gerado, não versionar)
+ANALISE_TECNICA.md
+
+# Artefatos XLSX e CSV gerados no pipeline
+data/reports/*.xlsx
+data/reports/*.csv

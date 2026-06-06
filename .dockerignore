@@ -1,0 +1,45 @@
+# Credenciais — nunca copiar para a imagem
+.env
+.env.local
+.env.*.local
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Dados e logs — montados como volume via docker-compose, não devem entrar na imagem
+data/asteroides.db
+data/neo_*.json
+data/reports/
+data/images/
+logs/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE e ferramentas locais
+.vscode/
+.idea/
+*.swp
+.claude/
+
+# Build e distribuição
+*.egg-info/
+dist/
+build/
+gs_entrega_*.zip
+
+# Relatório de análise técnica (gerado externamente)
+ANALISE_TECNICA.md

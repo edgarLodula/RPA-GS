@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitor de Asteroides — GS 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-esquerda">
+      <h1>Monitor de Asteroides</h1>
+      <span class="subtitulo">GS 2026 — FIAP AI for RPA</span>
+    </div>
+    <div class="header-direita">
+      <span id="ultima-atualizacao" class="muted"></span>
+      <button id="btn-atualizar" onclick="carregar()">Atualizar</button>
+      <a href="/relatorio.xlsx" download class="btn-download">Baixar XLSX</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="secao">
+      <h2 class="secao-titulo">Saúde do Sistema</h2>
+      <div id="saude" class="saude-grid">
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <h2 class="secao-titulo">Métricas do Último Relatório</h2>
+      <div id="cards" class="cards-grid">
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="tabela-header">
+        <h2 class="secao-titulo">Asteroides</h2>
+        <span id="contagem" class="badge-contagem"></span>
+      </div>
+      <p id="msg-tabela" class="msg muted"></p>
+      <div class="tabela-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Data Aprox.</th>
+              <th>Distância</th>
+              <th>Score de Risco</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
