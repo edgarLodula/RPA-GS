@@ -1,5 +1,15 @@
 # GS 2026 — Monitoramento de Missões Espaciais com RPA
 
+## Integrantes
+
+| RM | Nome |
+|----|------|
+| 552574 | Bruno Fernandes Nascimento |
+| 565260 | Edgar Lódula de Assis |
+| 566325 | Júlia Aben-Athar |
+
+---
+
 Pipeline RPA autônomo que coleta dados de asteroides próximos à Terra via API NeoWs da NASA, armazena em SQLite, calcula um score de risco multifatorial, detecta anomalias com **IsolationForest (ML)**, exporta relatórios em JSON e XLSX, e expõe tudo via API REST com FastAPI. O robô executa automaticamente a cada 6 horas e é empacotado com Docker para facilitar a implantação.
 
 ---
@@ -157,12 +167,19 @@ gs/
 │   ├── pipeline.py      # Orquestra: coleta → armazena → analisa → limpa
 │   └── scheduler.py     # Agendamento a cada 6 horas
 ├── frontend/
-│   └── index.html       # Interface web estática (HTML + CSS + JS puro)
+│   ├── index.html       # Interface web estática (HTML + CSS + JS puro)
+│   ├── css/
+│   │   └── style.css    # Estilos da interface
+│   └── js/
+│       └── app.js       # Lógica de consumo da API
 ├── scripts/
 │   └── build_entrega.py # Gera ZIP limpo de entrega (sem .env, __pycache__, DBs, logs)
 ├── tests/
-│   ├── test_analizer.py # Testes unitários do módulo de análise + IsolationForest
-│   └── test_xlsx.py     # Testes de geração do relatório XLSX
+│   ├── test_analizer.py  # Testes do módulo de análise + IsolationForest
+│   ├── test_api.py       # Testes dos endpoints FastAPI
+│   ├── test_collector.py # Testes da coleta com retry/backoff
+│   ├── test_database.py  # Testes do CRUD SQLite
+│   └── test_xlsx.py      # Testes de geração do relatório XLSX
 ├── data/                # Criado automaticamente na primeira execução
 │   ├── asteroides.db    # Banco SQLite principal
 │   ├── neo_*.json       # JSONs brutos da NASA (um por dia)
